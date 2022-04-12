@@ -1,0 +1,44 @@
+{
+	"manifest_version": 2,
+	"name": "Chromaticity",
+	"version": "1",
+	"browser_specific_settings": {
+  	"gecko": {
+			"id": "chromaticity@menhera.org"
+		}
+	},
+	"author": "Menhera.org",
+	"homepage_url": "https://github.com/menhera-org/chromaticity",
+	"description": "Simple dynamic theme manager featuring colorful themes.",
+	"permissions": [
+		"theme"
+	],
+	"incognito": "spanning",
+	"background": {
+		"page": "background/background.html"
+	},
+	"browser_action": {
+		"browser_style": true,
+		"default_icon": {
+			"16": "icon.svg"
+		},
+		"default_title": "Chromaticity",
+		"default_popup": "options/options.html",
+		"theme_icons": [
+			{
+				"size": 16,
+				"light": "icon.svg",
+				"dark": "icon.svg"
+			}
+		]
+	},
+	"options_ui": {
+		"page": "options/options.html",
+		"browser_style": true,
+		"open_in_tab": false
+	},
+	"icons": {
+		"48": "icon.svg",
+		"96": "icon.svg"
+	}
+}
