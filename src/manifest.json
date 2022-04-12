@@ -17,21 +17,6 @@
 	"background": {
 		"page": "background/background.html"
 	},
-	"browser_action": {
-		"browser_style": true,
-		"default_icon": {
-			"16": "icon.svg"
-		},
-		"default_title": "Chromaticity",
-		"default_popup": "options/options.html",
-		"theme_icons": [
-			{
-				"size": 16,
-				"light": "icon.svg",
-				"dark": "icon.svg"
-			}
-		]
-	},
 	"options_ui": {
 		"page": "options/options.html",
 		"browser_style": true,
