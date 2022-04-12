@@ -26,6 +26,17 @@ globalThis.cieluv = cieluv;
 import * as random from '/modules/random.mjs';
 globalThis.random = random;
 
+import {config} from '../modules/config.mjs';
+
+let config_color_preference = 'both';
+config.observe('color_preference', (value) => {
+  if (undefined !== value) {
+    config_color_preference = value;
+  } else {
+    config.set('color_preference', 'both');
+  }
+});
+
 const whitepoint = srgb.to_xyz([1, 1, 1]);
 
 const L_MAX = 100;
@@ -49,10 +60,26 @@ let velocity_l = 0;
 let velocity_u = 0;
 let velocity_v = 0;
 
+let previous_color_prefence = 'both';
+
 globalThis.set_theme_color_cieluv = ([l, u, v], strict) => {
   if (l > 100 || l < 0 && strict) {
     throw new TypeError('Out of range');
   }
+  if (l >= 50 && config_color_preference == 'dark') {
+    if (previous_color_prefence == 'both') {
+      previous_color_prefence = 'dark';
+      return reset();
+    }
+    throw new TypeError('Out of range');
+  } else if (l <= 50 && config_color_preference == 'light') {
+    if (previous_color_prefence == 'both') {
+      previous_color_prefence = 'light';
+      return reset();
+    }
+    throw new TypeError('Out of range');
+  }
+  previous_color_prefence = config_color_preference;
   const xyz = cieluv.to_xyz([l, u, v], whitepoint);
   const rgb = srgb.from_xyz(xyz, strict);
   const rgb_8bit = srgb.to_8bit(rgb);

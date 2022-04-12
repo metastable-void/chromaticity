@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Chromaticity",
-	"version": "1",
+	"version": "2",
 	"browser_specific_settings": {
   	"gecko": {
 			"id": "chromaticity@menhera.org"
@@ -11,7 +11,8 @@
 	"homepage_url": "https://github.com/metastable-void/chromaticity",
 	"description": "Simple dynamic theme manager featuring colorful themes.",
 	"permissions": [
-		"theme"
+		"theme",
+		"storage"
 	],
 	"incognito": "spanning",
 	"background": {

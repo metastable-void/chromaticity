@@ -1,6 +1,7 @@
-<!-- vim: set ts=2 sw=2 et ai :
-  Chromaticity
-  Copyright (C) 2022 Menhera.org
+// vim: ts=2 sw=2 et ai
+/*
+  Container Tab Groups
+  Copyright (C) 2021 Menhera.org
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -14,23 +15,16 @@
 
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
-<!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
-<head>
-  <meta charset='utf-8'/>
-  <title></title>
-  <link rel='stylesheet' href='/options/options.css'/>
-  <script type='module' src='/options/options.mjs'></script>
-</head>
-<body>
- <p>
-   <label>Color Preference:</label>
-    <select id='select-color_preference' class='browser-style'>
-      <option value='both'>Light and Dark Colors</option>
-      <option value='light'>Light Colors</option>
-      <option value='dark'>Dark Colors</option>
-    </select>
-  </p>
-</body>
-</html>
+*/
+
+export const sleep = (secs) => new Promise((res) => {
+    setTimeout(() => res(), secs * 1000);
+  });
+  
+  export const callIgnoringErrors = (callback, ... args) => {
+    try {
+      const promise = Promise.resolve(callback(... args));
+      promise.catch(() => void 0);
+    } catch (e) {}
+  };
+  
