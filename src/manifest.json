@@ -8,7 +8,7 @@
 		}
 	},
 	"author": "Menhera.org",
-	"homepage_url": "https://github.com/menhera-org/chromaticity",
+	"homepage_url": "https://github.com/metastable-void/chromaticity",
 	"description": "Simple dynamic theme manager featuring colorful themes.",
 	"permissions": [
 		"theme"
