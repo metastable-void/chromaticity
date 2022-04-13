@@ -150,3 +150,9 @@ reset().catch((e) => {
 
 setInterval(() => tick(), 1000);
 
+browser.browserAction.onClicked.addListener((tab) => {
+  browser.runtime.openOptionsPage().catch((e) => {
+    console.error(e);
+  });
+});
+
