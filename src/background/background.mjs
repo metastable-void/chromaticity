@@ -67,13 +67,13 @@ globalThis.set_theme_color_cieluv = ([l, u, v], strict) => {
     throw new TypeError('Out of range');
   }
   if (l >= 50 && config_color_preference == 'dark') {
-    if (previous_color_prefence == 'both') {
+    if (previous_color_prefence != 'dark') {
       previous_color_prefence = 'dark';
       return reset();
     }
     throw new TypeError('Out of range');
   } else if (l <= 50 && config_color_preference == 'light') {
-    if (previous_color_prefence == 'both') {
+    if (previous_color_prefence != 'light') {
       previous_color_prefence = 'light';
       return reset();
     }
