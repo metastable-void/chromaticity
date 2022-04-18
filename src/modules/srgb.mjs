@@ -40,7 +40,11 @@ export const from_xyz = ([x, y, z], strict) => {
   const min = Math.min(... linear_rgb);
   const max = Math.max(... linear_rgb);
   if (max > 1) {
-    throw new Error('Color value overflow');
+    if (strict) {
+      throw new Error('Color value overflow');
+    }
+    const max = Math.max(...linear_rgb);
+    linear_rgb = linear_rgb.map(a => a / max);
   }
   if (min < 0) {
     if (strict) {
